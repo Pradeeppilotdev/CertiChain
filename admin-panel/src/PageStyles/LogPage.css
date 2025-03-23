@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Dosis:wght@200..800&family=Figtree:ital,wght@0,300..900;1,300..900&family=Inconsolata:wght@200..900&family=Michroma&family=Nunito+Sans:ital,opsz,wdth,wght,YTLC@0,6..12,75..125,200..1000,440..540;1,6..12,75..125,200..1000,440..540&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Share+Tech&family=Share+Tech+Mono&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ulogin_title {
+    font-family: 'Montserrat';
+    color: #666;
+    font-size: 35px;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.adminlogin {
+    background: #8B5DFF;
+    border: 3px solid #8B5DFF;
+    border-radius: 20px;
+    padding: 15px 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 17px;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.adminlogin:hover {
+    background: white;
+    color: #8B5DFF;
+}
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: contain;
+    background: white;
+    margin-top: -90px;
+}
+
+
+/* making the mobile description invisible */
+
+.mobdes {
+    display: none;
+}
+
+/* styles for the description */
+
+.des {
+    font-family: 'Figtree';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 40%;
+    text-shadow: 0px 5px 10px gray;
+    border-radius: 50px;
+}
+
+.des h3 {
+    font-size: 30px;
+    color: #e62552;
+}
+
+.des p {
+    margin-top: 5px;
+    font-size: 20px;
+    color: rgba(32, 93, 246, 0.904);
+    font-weight: bold;
+}
+
+.des p span {
+    background: #fcb843;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+
+.formArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    flex-wrap: nowrap;
+    top: 55%;
+    transform: translateY(-50%);
+    right: 8%;
+    width: 30%;
+    background: rgb(246, 244, 246);
+    font-family: 'Nunito sans';
+    color: #8B5DFF;
+    padding: 10px 0px;
+    border-radius: 25px;
+    overflow: hidden;
+    filter: drop-shadow(1px 2px 2px #000000ba);
+}
+
+.formArea .circle { /*the circle at the top right corner */
+    background: #536dddf9;
+    border-radius: 50%;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    top: -10%;
+    right: -10%;
+    z-index: 100;
+}
+
+.formArea .circle img {
+    width: 50px;
+    height: auto;
+    position: relative;
+    left: 25%;
+    top: 45%;
+    filter: invert(1);
+    z-index: 2;
+}
+
+.formArea  h2 {
+    margin-bottom: 60px;
+    font-size: 2.2rem;
+}
+
+/* styles for the 'wrapper' container that contains signin and signup forms */
+
+.formArea .wrapper {
+    width: 200%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-shrink: 0;
+    transform: translateX(-25%);
+    transition: .5s ease;
+}
+
+.wrapper.moveToSignIn {
+    transform: translateX(-25%);
+}
+  
+.wrapper.moveToSignUp {
+    transform: translateX(25%);
+}
+
+/* styles for the individual containers that holds sign in and sign up forms separately */
+
+.formArea .forms {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* styles for the form */
+
+.formArea form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    padding: 10px;
+}
+
+/* styles for individual containers inside a form that holds the input and label together */
+
+.formArea .inputarea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    position: relative;
+}
+
+.formArea .inputarea label {
+    display: block;
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    font-size: 18px;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .5s ease;
+}
+
+.formArea .inputarea input {
+    width: 90%;
+    border: none;
+    border-bottom: 3px solid #8B5DFF;
+    background: transparent;
+    padding: 5px;
+    font-family: 'Nunito sans';
+    font-weight: 800;
+    color: #666;
+    font-size: 18px;
+}
+
+input:is(:-webkit-autofill, :autofill){
+    background: transparent;
+    border-radius: 15px !important;
+    -webkit-text-fill-color: #4C62BF !important;
+}
+
+.formArea .inputarea input:focus {
+    outline: none;
+}
+
+.formArea input[type='submit'] {
+    height: auto;
+    width: 120px;
+    font-family: 'Nunito sans';
+    background: #8B5DFF;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 20px;
+    place-content: center;
+    cursor: pointer;
+    margin-top: 10px;
+    border: 3px solid #8B5DFF;
+}
+
+.formArea input[type='submit']:hover {
+    background: white;
+    color: #8B5DFF;
+}
+
+.BCimage {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    left: 10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px
+}
+
+@media (max-width:768px) {
+    
+    /* adjusting the image correctly for mobile screens */
+    .discussimg {
+        width: 100%;
+        left: 0;
+        bottom: -10px;
+    }
+
+    /* making the description invisible */
+    .des {
+        display: none;
+    }
+
+    /* making the mobile version description visible */
+    .mobdes {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 12.5%;
+        font-size: 20px;
+        font-weight: bold;
+        color: rgba(32, 93, 246, 0.904);
+        text-shadow: 0px 5px 10px gray;
+        font-family: 'Figtree';
+    }
+
+    .des p {
+        font-size: 18px;
+    }
+
+    /* adjusting formarea container for mobiles */
+    .formArea {
+        top: 50%;
+        right: 50%;
+        transform: translateY(-50%) translateX(50%);
+        width: 80%;
+        padding: 0px;
+    }
+
+    .formArea .circle {
+        width: 80px;
+        height: 80px;
+        top: -5%;
+        right: -10%;
+    }
+
+    .formArea .circle img {
+        width: 30%;
+    }
+
+    .formArea h2 {
+        margin-bottom: 30px;
+    }
+
+    .formArea .forms {
+        padding: 10px;
+    }
+    .formArea form {
+        gap: 30px;
+    }
+
+}
+

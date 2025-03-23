@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { BrowserProvider, Contract } from "ethers";
 
+import Verify from './assets/Images/Verify.jpg';
+import './PageStyles/studentpanel.css';
+
 const StudentPanel = () => {
     // Contract Address
     const contractAddress = "0x7CCEa65bF248dA083bF29518197Fba08BA2F79a0";
@@ -109,24 +112,36 @@ const StudentPanel = () => {
     };
 
     return (
+        <>
+        <h2 className="studentpanelhead">Student Panel</h2>
+
         <div>
-            <h2>Student Panel</h2>
-            {walletAddress ? (
+            <div className="studentpanel">
+            <div className="panelimg">
+                <img src={Verify} alt="" />
+            </div>
+                <div className="studentinput">
+                {walletAddress ? (
                 <p>Connected Wallet: {walletAddress}</p>
             ) : (
-                <button onClick={connectWallet}>Connect Wallet</button>
+                <button onClick={connectWallet} className="walletConnect">Connect Wallet</button>
             )}
             <br />
             <input
                 type="text"
                 placeholder="Enter IPFS Hash"
+                className="verifyinput"
                 value={hash}
                 onChange={(e) => setHash(e.target.value)}
             />
-            <button onClick={mintNFT} disabled={loading}>
+            <button onClick={mintNFT} disabled={loading} className="checkbutton">
                 {loading ? "Minting..." : "Mint NFT"}
             </button>
+                </div>
+            
+            </div>
         </div>
+        </>
     );
 };
 

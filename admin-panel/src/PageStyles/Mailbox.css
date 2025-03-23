@@ -1,0 +1,51 @@
+.mailbox {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 0px;
+    padding: 20px;
+    text-align: center;
+}
+
+.mailbox h2 {
+    color: #8B5DFF;
+    font-size: 28px;
+}
+  
+.mailbox textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #8B5DFF;
+    border-radius: 10px;
+    resize: none;
+    margin-top: 30px;
+}
+  
+.mailbox button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #8B5DFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.mailbox button:hover {
+    background-color: #8B5DFF;
+}
+
+@media (max-width:678px) {
+    .mailbox {
+        margin-top: 20px;
+    }
+
+    .mailbox h2 {
+        margin-top: 0px;
+    }
+}
+  
