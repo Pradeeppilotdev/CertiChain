@@ -39,6 +39,12 @@
     right: 2%;
     top: 2%;
     z-index: 100;
+    cursor: pointer;
+}
+
+.walletConnect:hover {
+    background: white;
+    color: #8B5DFF;
 }
 
 .verifyinput {
@@ -64,4 +70,11 @@
     width: 100px;
     border-radius: 5px;
     font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.checkbutton:hover {
+    background: #8B5DFF;
+    color: white;
 }
