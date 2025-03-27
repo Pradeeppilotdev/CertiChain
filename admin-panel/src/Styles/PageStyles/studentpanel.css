@@ -41,6 +41,12 @@
     right: 2%;
     top: 2%;
     z-index: 100;
+    cursor: pointer;
+}
+
+.walletConnect:hover {
+    background: white;
+    color: #8B5DFF;
 }
 
 .verifyinput {
@@ -66,6 +72,7 @@
     width: 100px;
     border-radius: 5px;
     font-size: 18px;
+<<<<<<< HEAD:admin-panel/src/Styles/PageStyles/studentpanel.css
 }
 
 .transactionMessage {
@@ -78,4 +85,13 @@
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
+=======
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.checkbutton:hover {
+    background: #8B5DFF;
+    color: white;
+>>>>>>> 1ad1c3aada8cf2d3acaa79e8a801db265603082b:admin-panel/src/PageStyles/studentpanel.css
 }

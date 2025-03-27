@@ -180,6 +180,35 @@ def upload_certificate():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+
+@app.route('/get_hashes', methods=['GET'])
+def get_hashes():
+    print("Function executing")
+
+    try:
+        achiever_id = '73152313007'
+
+        try:
+            db.collection('usercredentials').limit(1).get()
+            print("Firestore connection successful.")
+        except Exception as e:
+            print(f"Firestore connection failed: {e}")
+
+
+        if not achiever_id:
+            return jsonify({"error": "Achiever ID is required"}), 400
+
+        certificates_ref = db.collection('usercredentials')
+        query_ref = certificates_ref.where('username', '==', achiever_id).stream()
+
+        hashes = [doc.to_dict().get('ipfshash') for doc in query_ref if 'ipfshash' in doc.to_dict()]
+        print("Hashes:", hashes)
+
+        return jsonify({"hashes": hashes}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True)
