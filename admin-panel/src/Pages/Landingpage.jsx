@@ -1,8 +1,11 @@
-import './PageStyles/LandingPage.css';
-import verifyImage from './assets/Images/Verify.jpg';
-import TeamImage from './assets/Images/Team.jpg';
+import '../Styles/PageStyles/LandingPage.css';
+import verifyImage from '../assets/Images/Verify.jpg';
+import TeamImage from '../assets/Images/Team.jpg';
+import logo from '../assets/Images/CertiChain.svg';
 
-import Mailbox from './Mailbox.jsx';
+import Mailbox from '../Components/Mailbox.jsx';
+import Featuregrid from '../Components/Featuregrid.jsx';
+
 import { useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
@@ -23,7 +26,8 @@ function Landingpage() {
 
             <ul className="navlinks">
                 <li className="navlink">Home</li>
-                <li className="navlink">Services</li>
+                <li className="navlink">Features</li>
+                <li className="navlink">Overview</li>
                 <li className="navlink">About</li>
                 <li className="navlink">Contact</li>
             </ul>
@@ -37,6 +41,7 @@ function Landingpage() {
 
 
     <div className="hero-section">
+        <img className='logo' src={logo} alt="" />
         <h1>Welcome to CertiChain</h1>
         <h2>Verify Certificates with Ease!</h2>
         <p>Say goodbye to the hassle of lost or forged documents. With blockchain technology, your credentials are tamper-proof, 
@@ -44,16 +49,14 @@ function Landingpage() {
             technology.</p>
 
         <div className="buttonarea">
-            <button>Get Started</button>
-            <button>Learn more</button>
+            <a href=""><button>Get Started</button></a>
+            <a href="#desc"><button>Learn more</button></a>
         </div>
     </div>
 
-    <img className='hero-sectionimg' src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=2535&ixlib=rb-4.0.3" alt="" />
-
     <div className="descriptionTitle Titles">Key Features</div>
 
-    <div className="description">
+    <div className="description" id='desc'>
 
         <div className="desImage">
             <img src={verifyImage} alt="" />
@@ -76,6 +79,8 @@ function Landingpage() {
 
 
     </div>
+
+    <Featuregrid />
 
     <div className="ContactTitl Titles">About us</div>
 

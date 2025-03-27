@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { BrowserProvider, Contract } from "ethers";
 
-import Verify from './assets/Images/Verify.jpg';
-import './PageStyles/studentpanel.css';
+import Verify from '../assets/Images/Verify.jpg';
+import '../Styles/PageStyles/studentpanel.css';
 
 const StudentPanel = () => {
-    // Contract Address
     const contractAddress = "0x7CCEa65bF248dA083bF29518197Fba08BA2F79a0";
 
-    // Contract ABI
     const abi = [
         {
             "inputs": [
@@ -47,9 +45,10 @@ const StudentPanel = () => {
         }
     ];
 
-    const [hash, setHash] = useState(""); // Stores IPFS hash input
-    const [walletAddress, setWalletAddress] = useState(""); // Stores connected wallet address
-    const [loading, setLoading] = useState(false); // Tracks loading state
+    const [hash, setHash] = useState("");
+    const [walletAddress, setWalletAddress] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [transactionHash, setTransactionHash] = useState("");
 
     const connectWallet = async () => {
         try {
@@ -62,12 +61,11 @@ const StudentPanel = () => {
             setWalletAddress(accounts[0]);
             console.log("Connected Wallet:", accounts[0]);
 
-            // Switch to or add EDU Chain Testnet
             await window.ethereum.request({
                 method: "wallet_addEthereumChain",
                 params: [
                     {
-                        chainId: "0xa045c", // Hexadecimal for EDU Chain Testnet (656476)
+                        chainId: "0xa045c",
                         chainName: "EDU Chain Testnet",
                         rpcUrls: ["https://rpc.open-campus-codex.gelato.digital"],
                         nativeCurrency: {
@@ -102,8 +100,9 @@ const StudentPanel = () => {
             const tx = await contract.mintCertificate(await signer.getAddress(), hash);
             await tx.wait();
             setLoading(false);
+            setTransactionHash(tx.hash);
 
-            alert(`NFT minted successfully! Transaction: ${tx.hash}`);
+            alert("NFT minted successfully!");
         } catch (err) {
             setLoading(false);
             console.error("Minting Error:", err);
@@ -113,34 +112,46 @@ const StudentPanel = () => {
 
     return (
         <>
-        <h2 className="studentpanelhead">Student Panel</h2>
+            <h2 className="studentpanelhead">Student Panel</h2>
 
-        <div>
             <div className="studentpanel">
-            <div className="panelimg">
-                <img src={Verify} alt="" />
-            </div>
-                <div className="studentinput">
-                {walletAddress ? (
-                <p>Connected Wallet: {walletAddress}</p>
-            ) : (
-                <button onClick={connectWallet} className="walletConnect">Connect Wallet</button>
-            )}
-            <br />
-            <input
-                type="text"
-                placeholder="Enter IPFS Hash"
-                className="verifyinput"
-                value={hash}
-                onChange={(e) => setHash(e.target.value)}
-            />
-            <button onClick={mintNFT} disabled={loading} className="checkbutton">
-                {loading ? "Minting..." : "Mint NFT"}
-            </button>
+                <div className="panelimg">
+                    <img src={Verify} alt="Verify" />
                 </div>
-            
+
+                <div className="studentinput">
+                    {walletAddress ? (
+                        <p>Connected Wallet: {walletAddress}</p>
+                    ) : (
+                        <button onClick={connectWallet} className="walletConnect">Connect Wallet</button>
+                    )}
+                    <br />
+                    <input
+                        type="text"
+                        placeholder="Enter IPFS Hash"
+                        className="verifyinput"
+                        value={hash}
+                        onChange={(e) => setHash(e.target.value)}
+                    />
+                    <button onClick={mintNFT} disabled={loading} className="checkbutton">
+                        {loading ? "Minting..." : "Mint NFT"}
+                    </button>
+
+                    {/* Display Transaction Hash */}
+                    {transactionHash && (
+                        <p className="transactionMessage">
+                            Transaction Hash:{" "}
+                            <a
+                                href={`https://edu-chain-testnet.blockscout.com/tx/${transactionHash}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {transactionHash}
+                            </a>
+                        </p>
+                    )}
+                </div>
             </div>
-        </div>
         </>
     );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './PageStyles/LogPage.css';
+import '../Styles/PageStyles/LogPage.css';
 import { useNavigate } from 'react-router-dom';
-import BloackChain from './assets/Images/BlochChain.jpg';
+import BloackChain from '../assets/Images/Blockchain.jpg';
 
 function StudentLogPage() {
   const [isSignUp, setIsSignUp] = useState(true);
@@ -21,20 +21,17 @@ function StudentLogPage() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/userlogin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mail: loginData.email,
-          password: loginData.password
-        })
-      });
-      const result = await response.json();
-      if (response.ok) {
-        alert('Login Successful!');
+      // Mock data for testing
+      const mockUserData = {
+        email: "student@test.com",
+        password: "student123"
+      };
+
+      if (loginData.email === mockUserData.email && loginData.password === mockUserData.password) {
+        alert("Login Successful!");
         navigate('/student');
       } else {
-        alert(result.error);
+        alert("Invalid email or password");
       }
     } catch (error) {
       console.error('Error:', error);
@@ -45,21 +42,18 @@ function StudentLogPage() {
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/userregister', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: signupData.username,
-          mail: signupData.email,
-          password: signupData.password
-        })
-      });
-      const result = await response.json();
-      if (response.ok) {
-        alert('Registration Successful! Please Sign In.');
-        movetoSignin();
+      // Mock data for testing
+      const mockSignupData = {
+        username: "Test Student",
+        email: "student@test.com",
+        password: "student123"
+      };
+
+      if (signupData.email === mockSignupData.email) {
+        alert("Email already registered");
       } else {
-        alert(result.error);
+        alert("Registration Successful! Please Sign In.");
+        movetoSignin();
       }
     } catch (error) {
       console.error('Error:', error);
@@ -71,6 +65,18 @@ function StudentLogPage() {
     <>
       <h2 className='ulogin_title'>User Login</h2>
       <button className="adminlogin" onClick={() => navigate('/login')}>Admin Login</button>
+
+      {/* Add test credentials display */}
+      <div style={{ 
+        textAlign: 'center', 
+        margin: '10px 0', 
+        padding: '10px', 
+        backgroundColor: '#f5f5f5', 
+        borderRadius: '5px',
+        fontSize: '14px',
+        color: '#666'
+      }}>
+      </div>
 
       <div className="body">
         <img src={BloackChain} className='BCimage' alt='Blockchain Visual' />

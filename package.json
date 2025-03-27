@@ -1,0 +1,17 @@
+{
+  "name": "certichain",
+  "version": "1.0.0",
+  "description": "Certificate NFT Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.0",
+    "truffle": "^5.8.0",
+    "truffle-flattener": "^1.6.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.19"
+  }
+}

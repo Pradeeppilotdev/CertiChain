@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./PageStyles/Mailbox.css";
+import "../Styles/ComponentStyles/Mailbox.css";
 
 
 const Mailbox = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './PageStyles/LogPage.css';
-import BloackChain from './assets/Images/BlochChain.jpg';
+import '../Styles/PageStyles/LogPage.css';
+import BloackChain from '../assets/Images/Blockchain.jpg';
 import { useNavigate } from 'react-router-dom';
 
 function AdminLogPage() {
@@ -21,20 +21,17 @@ function AdminLogPage() {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/adminlogin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mail: loginData.email, // Adjusted field name
-          password: loginData.password
-        })
-      });
-      const result = await response.json();
-      if (response.ok) {
-        alert(`Login Successful! Admin ID: ${result.admin_id}`);
+      // Mock data for testing
+      const mockAdminData = {
+        email: "admin@test.com",
+        password: "admin123"
+      };
+
+      if (loginData.email === mockAdminData.email && loginData.password === mockAdminData.password) {
+        alert("Login Successful! Admin ID: mock-admin-123");
         navigate('/admin');
       } else {
-        alert(result.error);
+        alert("Invalid email or password");
       }
     } catch (error) {
       console.error('Error:', error);
@@ -45,21 +42,18 @@ function AdminLogPage() {
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/adminregister', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          Institutionname: signupData.username,
-          mail: signupData.email,
-          password: signupData.password
-        })
-      });
-      const result = await response.json();
-      if (response.ok) {
-        alert('Registration Successful! Please Sign In.');
-        movetoSignin();
+      // Mock data for testing
+      const mockSignupData = {
+        username: "Test Institution",
+        email: "admin@test.com",
+        password: "admin123"
+      };
+
+      if (signupData.email === mockSignupData.email) {
+        alert("Email already registered");
       } else {
-        alert(result.error);
+        alert("Registration Successful! Please Sign In.");
+        movetoSignin();
       }
     } catch (error) {
       console.error('Error:', error);

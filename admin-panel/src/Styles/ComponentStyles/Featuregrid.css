@@ -1,0 +1,64 @@
+.container {
+    text-align: center;
+    margin: auto;
+    font-family: 'Montserrat';
+    width: 87%;
+  }
+  
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    width: 100%;
+    margin-top: 50px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+ .card h2 {
+    color: #8B5DFF;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+ .card p {
+    color: #555;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    font-weight: 600
+  }
+
+  .card img {
+    width: 250px;
+    height: auto;
+  }
+
+  .purple {
+    width: 450px;
+    height:450px;
+    background: #a787f7ee;
+    border-radius: 60%;
+    position: absolute;
+    top: -65%;
+    right: -40%;
+    transition: .3s ease;
+  }
+
+  .card:hover .purple {
+    top: -62.5%;
+    right: -37.5%;
+  }
+  
