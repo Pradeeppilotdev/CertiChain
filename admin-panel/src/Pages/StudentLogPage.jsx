@@ -35,7 +35,7 @@ function StudentLogPage() {
             <h2>Sign Up</h2>
             <form>
               <div className="nameArea inputarea">
-                <label>Institution Name</label>
+                <label>User Name</label>
                 <input type="text" name='username' onFocus={Focus} onBlur={Notfocus} required />
               </div>
               <div className="mailArea inputarea">
