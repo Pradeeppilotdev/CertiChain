@@ -1,0 +1,101 @@
+.topbar {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-family: 'Montserrat';
+}
+
+.aboutus {
+    font-family: 'Montserrat';
+    font-size: 18px;
+    font-weight: 600;
+    background: #8B5DFF;
+    border: 2px solid #8B5DFF;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    padding: 7px;
+    margin-right: 2%;
+    transition: .3s ease;
+}
+
+.aboutus:hover {
+    background: white;
+    color: #8B5DFF;
+    transform: scale(1.1);
+}
+
+.prelogin-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 73vw;
+    background: #8B5DFF;
+    font-family: 'Montserrat';
+    padding: 15px;
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 35px;
+}
+
+.prelogincard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 13px;
+    background: transparent;
+    border-radius: 25px;
+    background: rgb(246, 246, 246);
+}
+
+.prelogincard button {
+    background: #8B5DFF;
+    border: 3px solid #8B5DFF;
+    color: #fff;
+    width: 140px;
+    padding: 10px 20px;
+    margin-left: 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s, transform 0.2s;
+}
+
+.prelogincard button:hover {
+    background: white;
+    color: #8B5DFF;
+    transform: scale(1.05);
+}
+
+.prelogincard h1 {
+    font-size: 50px;
+    color: rgb(17, 16, 16);
+}
+
+.prelogincard ul {
+    margin-top: 15px;
+}
+
+.prelogincard li {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4a4a4a;
+    margin-left: 25px;
+}
+
+.prelogincard img{
+    width: 30%;
+}

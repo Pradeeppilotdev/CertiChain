@@ -32,7 +32,7 @@ function Landingpage() {
                 <li className="navlink">Contact</li>
             </ul>
 
-            <button className="logbtn" onClick={() => {navigate('/login', { replace: true })}}>
+            <button className="logbtn" onClick={() => {navigate('/prelogin', { replace: true })}}>
                 Login
             </button>
         </div>
