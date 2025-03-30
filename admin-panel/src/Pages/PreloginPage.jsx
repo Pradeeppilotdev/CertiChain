@@ -24,7 +24,7 @@ function PreloginPage() {
 
     <div className="prelogin-container">
         <div className="prelogincard admincard">
-          <h1>Admin</h1>
+          <h1>Admin🛡️</h1>
           <img src={institute} alt="Admin" />
           <ul>
             <li>Upload Certificates</li>
@@ -34,7 +34,7 @@ function PreloginPage() {
           <button onClick={() => {navigate('/adminlogin')}}>Proceed</button>
         </div>
         <div className="prelogincard studentcard">
-          <h1>Student</h1>
+          <h1>Student🙋‍♂️</h1>
           <img src={Student} alt="Student" />
           <ul>
             <li>Mint NFTs</li>

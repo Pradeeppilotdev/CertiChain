@@ -1,9 +1,17 @@
 import '../Styles/PageStyles/LoginPage.css';
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function StudentLogPage() {
-    const [isSignUp, setIsSignUp] = useState(true); 
+  const navigate = useNavigate();
+
+  const [isSignUp, setIsSignUp] = useState(true); 
+  const [formData, setFormData] = useState({
+    userName: '',
+    email: '',
+    password: ''
+  });
 
   function movetoSignin() {
     setIsSignUp(false); 
@@ -23,8 +31,66 @@ function StudentLogPage() {
     }
   }
 
+  function handleInputChange(e) {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
+
+  async function handleRegister(e) {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/user_register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert('Registration Successful');
+        setIsSignUp(false); 
+      } else {
+        alert(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      alert('Failed to connect to the server');
+    }
+  }
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/user_login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        navigate('/student');
+        alert('Login Successful');
+        setIsSignUp(false); 
+      } else {
+        alert(`Error: ${data.message}`);
+      }
+    } catch (error) {
+      alert('Failed to connect to the server');
+    }
+  }
+
   return (
     <div className="logpagediv">
+
+    <button className="adminlogredirect logredirect" onClick={() => {navigate('/adminlogin')}}>🛡️</button>
+
 
         <div className="formArea">
         <h1 className="logtitle">Student Login🙋‍♂️</h1>
@@ -33,18 +99,18 @@ function StudentLogPage() {
         <div className={`wrapper ${isSignUp ? 'moveToSignUp' : 'moveToSignIn'}`}>
           <div className="signupform forms">
             <h2>Sign Up</h2>
-            <form>
+            <form onSubmit={handleRegister}>
               <div className="nameArea inputarea">
                 <label>User Name</label>
-                <input type="text" name='username' onFocus={Focus} onBlur={Notfocus} required />
+                <input type="text" name='userName' onFocus={Focus} onBlur={Notfocus} onChange={handleInputChange} required />
               </div>
               <div className="mailArea inputarea">
                 <label>EMail</label>
-                <input type="email" name='email' onFocus={Focus} onBlur={Notfocus} required />
+                <input type="email" name='email' onFocus={Focus} onBlur={Notfocus} onChange={handleInputChange} required />
               </div>
               <div className="passwordArea inputarea">
                 <label>Password</label>
-                <input type="password" name='password' onFocus={Focus} onBlur={Notfocus} required />
+                <input type="password" name='password' onFocus={Focus} onBlur={Notfocus} onChange={handleInputChange} required />
               </div>
               <input type="submit" value="Register" />
               <p>Already have an account? <a href="#" onClick={movetoSignin}>Sign In</a></p>
@@ -53,14 +119,14 @@ function StudentLogPage() {
 
           <div className="signinform forms">
             <h2>Sign In</h2>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="mailArea inputarea">
                 <label>EMail</label>
-                <input type="email" name='email' onFocus={Focus} onBlur={Notfocus} required />
+                <input type="email" name='email' onFocus={Focus} onBlur={Notfocus} onChange={handleInputChange} required />
               </div>
               <div className="passwordArea inputarea">
                 <label>Password</label>
-                <input type="password" name='password' onFocus={Focus} onBlur={Notfocus} required />
+                <input type="password" name='password' onFocus={Focus} onBlur={Notfocus} onChange={handleInputChange} required />
               </div>
               <input type="submit" value="Login" />
               <p>Don't have an account? <a href="#" onClick={movetoSignup}>Sign Up</a></p>
