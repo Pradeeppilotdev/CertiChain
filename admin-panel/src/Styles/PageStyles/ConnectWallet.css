@@ -1,0 +1,54 @@
+.cWallet {
+    width: 75vw;background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 35px;
+    overflow: hidden;
+}
+
+.cwalletimg {
+    width: 50%;
+}
+
+.cwalletimg img {
+    width: 80%;
+}
+
+.cwallet-text {
+    font-family: 'Montserrat';
+    position: relative;
+}
+
+.cpurple {
+    top: -210% !important;
+    right: -80% !important;
+}
+
+.cwallet-text h1 {
+    font-size: 35px;
+}
+
+.cwallet-text h3 {
+    font-size: 20px;
+    color: #666;
+}
+
+.cwallet-text button {
+    width: 100px;
+    padding: 10px;
+    background: #8B5DFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #8B5DFF;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Montserrat';
+    color: #fff;
+    font-weight: 600;
+}
