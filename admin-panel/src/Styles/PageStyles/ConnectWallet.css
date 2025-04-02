@@ -1,54 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #8b5dff;
+}
+
+.connect-wallet-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .cWallet {
-    width: 75vw;background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 35px;
-    overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 500px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 35px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
 .cwalletimg {
-    width: 50%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  position: relative;
+  z-index: 2;
 }
 
 .cwalletimg img {
-    width: 80%;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
 }
 
 .cwallet-text {
-    font-family: 'Montserrat';
-    position: relative;
+  flex: 1;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .cpurple {
-    top: -210% !important;
-    right: -80% !important;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: #8B5DFF;
+  border-radius: 50%;
+  opacity: 0.08;
+  top: -100px;
+  right: -100px;
+  z-index: 1;
 }
 
 .cwallet-text h1 {
-    font-size: 35px;
+  font-size: 35px;
+  margin-bottom: 15px;
+  color: #000000;
+  font-weight: 600;
 }
 
 .cwallet-text h3 {
-    font-size: 20px;
-    color: #666;
+  font-size: 20px;
+  color: #666666;
+  margin-bottom: 30px;
+  font-weight: 400;
 }
 
-.cwallet-text button {
-    width: 100px;
-    padding: 10px;
-    background: #8B5DFF;
-    display: flex;
-    justify-content: center;
+.connect-btn-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.connect-btn-container button {
+  background: #8B5DFF;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+}
+
+.connect-btn-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 93, 255, 0.3);
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .cWallet {
+    flex-direction: column;
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .cwalletimg {
+    width: 100%;
+    margin-bottom: 30px;
+    min-height: 200px;
+  }
+
+  .cwalletimg img {
+    max-width: 300px;
+  }
+
+  .cwallet-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cwallet-text h1 {
+    font-size: 28px;
+  }
+
+  .cwallet-text h3 {
+    font-size: 16px;
+  }
+
+  .connect-btn-container {
+    flex-direction: column;
     align-items: center;
-    border: 3px solid #8B5DFF;
-    border-radius: 10px;
-    font-size: 18px;
-    font-family: 'Montserrat';
-    color: #fff;
-    font-weight: 600;
+  }
+
+  .connect-btn-container button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .cpurple {
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    right: -50px;
+  }
 }
