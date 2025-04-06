@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(23, 20, 32);
+    background-color: rgb(23, 20, 32) !important;
     margin: 0;
     margin-top: 90px;
     font-family: Arial, sans-serif;

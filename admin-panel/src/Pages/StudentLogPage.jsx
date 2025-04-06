@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function StudentLogPage() {
   const navigate = useNavigate();
 
-  const [isSignUp, setIsSignUp] = useState(true); 
+  const [isSignUp, setIsSignUp] = useState(true);
   const [formData, setFormData] = useState({
     userName: '',
     email: '',
@@ -14,11 +14,11 @@ function StudentLogPage() {
   });
 
   function movetoSignin() {
-    setIsSignUp(false); 
+    setIsSignUp(false);
   }
 
   function movetoSignup() {
-    setIsSignUp(true); 
+    setIsSignUp(true);
   }
 
   function Focus(e) {
@@ -46,12 +46,12 @@ function StudentLogPage() {
         credentials: 'include',
         body: JSON.stringify(formData)
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
         alert('Registration Successful');
-        setIsSignUp(false); 
+        setIsSignUp(false);
       } else {
         alert(`Error: ${data.message}`);
       }
@@ -71,28 +71,28 @@ function StudentLogPage() {
         credentials: 'include',
         body: JSON.stringify(formData)
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
-        navigate('/student');
-        alert('Login Successful');
-        setIsSignUp(false); 
+        alert(data.message);
+        navigate(data.redirect.replace('http://localhost:5173', ''));  // Only path
       } else {
-        alert(`Error: ${data.message}`);
+        alert(`Error: ${data.error || 'Unknown error'}`);
       }
     } catch (error) {
       alert('Failed to connect to the server');
     }
   }
 
+
   return (
     <div className="logpagediv">
 
-    <button className="adminlogredirect logredirect" onClick={() => {navigate('/adminlogin')}}>🛡️</button>
+      <button className="adminlogredirect logredirect" onClick={() => { navigate('/adminlogin') }}>🛡️</button>
 
 
-        <div className="formArea">
+      <div className="formArea">
         <h1 className="logtitle">Student Login🙋‍♂️</h1>
 
 
@@ -134,7 +134,7 @@ function StudentLogPage() {
           </div>
         </div>
       </div>
-        
+
     </div>
   )
 }

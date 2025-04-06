@@ -84,7 +84,7 @@ html {
     width: 93%;
     margin: auto;
     margin-top: 65px;
-    padding: 40px 10px;
+    padding: 80px 10px;
     text-align: center;
     font-family: 'Montserrat';
     position: relative;
@@ -123,7 +123,7 @@ html {
     align-items: center;
     gap: 10%;
     font-family: 'Montserrat';
-    margin-top: 25px;
+    margin-top: 45px;
   }
 
   .hero-section .buttonarea button {

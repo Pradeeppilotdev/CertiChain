@@ -13,7 +13,7 @@
 
 .logtitle {
     position: absolute;
-    top: -5%;
+    top: -2%;
     font-size: 50px;
     color: #502bc1;
 }
@@ -30,7 +30,7 @@
     width: 35%;
     font-family: 'Nunito sans';
     color: #8B5DFF;
-    padding: 10px 0px;
+    padding: 15px 0px;
     border-radius: 25px;
     overflow: hidden;
 }
@@ -119,7 +119,7 @@
 .formArea .inputarea label {
     display: block;
     position: absolute;
-    left: 5%;
+    left: 6.5%;
     top: 50%;
     font-size: 19px;
     font-weight: 600;

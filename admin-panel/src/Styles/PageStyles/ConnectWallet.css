@@ -11,9 +11,6 @@ body {
 .connect-wallet-page {
   min-height: 100vh;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 20px;
 }
 
@@ -27,7 +24,7 @@ body {
   align-items: center;
   border-radius: 35px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  padding: 40px;
+  padding: 20px;
   gap: 40px;
   position: relative;
   overflow: hidden;
@@ -68,9 +65,9 @@ body {
   height: 400px;
   background: #8B5DFF;
   border-radius: 50%;
-  opacity: 0.08;
-  top: -100px;
-  right: -100px;
+  top: -200%;
+  right: -50%;
+  opacity: 0.8;
   z-index: 1;
 }
 
@@ -118,6 +115,28 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(139, 93, 255, 0.3);
   opacity: 0.95;
+}
+
+.continue {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  position: absolute;
+  bottom: -400%;
+}
+
+.continue.enabled {
+  background-color: #4CAF50;
+  cursor: pointer;
+}
+
+.continue.disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
